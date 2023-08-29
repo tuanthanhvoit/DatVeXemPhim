@@ -1,0 +1,39 @@
+﻿@model QLBanVePhim.Models.LoginModel
+
+@if (Request.IsAuthenticated) {
+        <div class="col-sm-4 col-sm-offset-4">
+        <button type="button" class="overlay-close">Close</button>
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @class = "login2" }))
+        {
+            <p class="login__title">Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })! <br><span class="login-edition">-----------------</span></p>
+            @Html.AntiForgeryToken()
+            <div class="login__control">
+                 <a href="@Url.Action("Index","TimKiem")"><button type="button">Đặt Vé</button></a>
+            </div>
+            <div class="login__control">
+                 <input type="submit" value="Thoát" />
+            </div>
+        }
+        </div>
+} else {
+    
+    <div class="col-sm-4 col-sm-offset-4">
+                    <button type="button" class="overlay-close">Close</button>
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new {@class = "login2" }))
+                    {
+                        <p class="login__title">Đăng Nhập <br><span class="login-edition">-----------------</span></p>
+                        
+                        <div class="field-wrap">
+                        @Html.TextBoxFor(m => m.UserName, new { type = "textbox", placeholder = "Email", @class = "login__input" })
+                        @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "Password", @class = "login__input" })
+                        @Html.CheckBoxFor(m => m.RememberMe, new { type = "checkbox", id = "#informed", @class = "login__check styled" })
+                        <label for='#informed' class='login__check-info'>remember me</label>
+                         </div>
+                        
+                        <div class="login__control">
+                            <input type="submit" class="btn btn-md btn--warning btn--wider" value="Đăng Nhập" />
+                            <a href="#" class="login__tracker form__tracker">Forgot password?</a>
+                        </div>
+                    }
+     </div>
+}

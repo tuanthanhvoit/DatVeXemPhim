@@ -1,0 +1,22 @@
+﻿@model QLBanVePhim.Models.DangPhim
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>DangPhim</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TenDang)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenDang)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.DangPhimId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

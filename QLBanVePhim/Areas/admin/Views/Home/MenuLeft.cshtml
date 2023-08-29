@@ -1,0 +1,125 @@
+﻿<div class="page-sidebar navbar-collapse collapse">
+    <!-- add "navbar-no-scroll" class to disable the scrolling of the sidebar menu -->
+    <!-- BEGIN SIDEBAR MENU -->
+    <ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
+        <li class="sidebar-toggler-wrapper">
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler hidden-phone"></div>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        </li>
+
+        <li class="start active ">
+            <a href="@Url.Action("Index","Home")">
+                <i class="fa fa-home"></i>
+                <span class="title">Trang Chủ</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="title">Quản Lý Rạp</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("Index","Rap")"><i class="fa fa-bullhorn"></i>Danh Sách Rạp</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Create","Rap")"><i class="fa fa-bullhorn"></i>Thêm Rạp</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="title">Quản Lý Dạng Phim</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("Index","DangPhim")"><i class="fa fa-bullhorn"></i>Danh Sách Dạng Phim</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="title">Quản Lý Loại Phim</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("Index","LoaiPhim")"><i class="fa fa-bullhorn"></i>Danh Sách Loại Phim</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-gift"></i>
+                <span class="title">Quản Lý Phim
+                </span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Complete E-Commerce Frontend Theme For Metronic Admin">
+                    <a href="@Url.Action("Index","Phim")"><span class="title">Danh Sách Phim</span></a>
+                </li>
+                <li class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Complete E-Commerce Frontend Theme For Metronic Admin">
+                    <a href="@Url.Action("Create","Phim")" target="_blank"><span class="title">Thêm Phim</span></a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="title">Phát Hành Phim</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("Index","PhatHanhPhim")"><i class="fa fa-bullhorn"></i>DS Phát Hành Phim</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Create","PhatHanhPhim")"><i class="fa fa-bullhorn"></i>Thêm Phát Hành Phim</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Edit","PhatHanhPhim")"><i class="fa fa-shopping-cart"></i>Sửa Phát Hành Phim</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-cogs"></i>
+                <span class="title">Quản Lý Ghế</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("Index","Ghe")">Danh Sách Ghế</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Create","Ghe")">Tạo Ghế</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="title">Quản Lý Dịch Vụ</span>
+                <span class="arrow "></span>
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="@Url.Action("Index","DichVu")"><i class="fa fa-bullhorn"></i>Danh Sách Dịch Vụ</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Create","DichVu")"><i class="fa fa-bullhorn"></i>Thêm Dịch Vụ</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Edit","DichVu")"><i class="fa fa-shopping-cart"></i>Sửa Dịch Vụ</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

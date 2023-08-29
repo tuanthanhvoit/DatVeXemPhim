@@ -1,0 +1,55 @@
+﻿@model QLBanVePhim.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+
+    <fieldset>
+        <legend>Đăng Kí</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.HoTen)
+                @Html.TextBoxFor(m => m.HoTen)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.NgaySinh)
+                @Html.TextBoxFor(m => m.NgaySinh)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.DienThoai)
+                @Html.TextBoxFor(m => m.DienThoai)
+            </li>
+            <li>
+                @Html.RadioButtonFor(model => model.GioiTinh, true, new { @checked="checked", @class="GioiTinh"}) Nam 
+                @Html.RadioButtonFor(model => model.GioiTinh, false, new { @class="GioiTinh"}) Nữ
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+            </li>
+        </ol>
+        <input type="submit" value="Register" />
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

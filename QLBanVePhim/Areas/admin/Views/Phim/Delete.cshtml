@@ -1,0 +1,68 @@
+﻿@model QLBanVePhim.Models.Phim
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Phim</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoaiPhim.TenLoai)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoaiPhim.TenLoai)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DangPhim.TenDang)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DangPhim.TenDang)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TenPhim)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenPhim)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AnhDaiDien)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AnhDaiDien)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MoTaPhim)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MoTaPhim)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ThoiLuong)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ThoiLuong)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LinkTrailer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LinkTrailer)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

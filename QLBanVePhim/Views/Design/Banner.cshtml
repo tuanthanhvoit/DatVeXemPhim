@@ -1,0 +1,25 @@
+﻿@model IEnumerable<QLBanVePhim.Models.Phim>
+<div class="movie-best">
+    <div class="col-sm-10 col-sm-offset-1 movie-best__rating">Lựa Chọn Tốt Nhất Trong Ngày</div>
+    <div class="col-sm-12 change--col">
+        @foreach (var item in Model)
+        {
+            <div class="movie-beta__item ">
+                <img alt='' width="190px" height="245px" src="~/images/@item.AnhDaiDien" />
+
+                <ul class="movie-beta__info">
+                    <li>
+                        <p class="movie__time">@item.ThoiLuong phút</p>
+                        <p>@item.LoaiPhim.TenLoai</p>
+                        <p>@item.DangPhim.TenDang</p>
+                    </li>
+                    <li class="last-block">
+                        <a href="@Url.Action("ChiTiet", "Phim", new { Id=item.PhimId})" class="slide__link">Xem Thêm</a>
+                    </li>
+                </ul>
+            </div>
+        
+        }
+        
+    </div>
+</div>

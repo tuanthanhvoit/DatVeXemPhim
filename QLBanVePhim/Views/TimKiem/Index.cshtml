@@ -1,0 +1,223 @@
+﻿@using System.Activities.Statements
+@model IEnumerable<QLBanVePhim.Models.Phim>
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (Model != null)
+{
+    
+    @ViewBag.Tag
+    foreach (var item in Model)
+    {
+    <!-- Movie preview item -->
+    <div class="movie movie--preview release">
+        <div class="col-sm-5 col-md-3">
+            <div class="movie__images">
+                <img alt='' src="~/images/@item.AnhDaiDien">
+            </div>
+        </div>
+
+        <div class="col-sm-7 col-md-9">
+            <a href='movie-page-right.html' class="movie__title link--huge">@item.TenPhim</a>
+
+            <p class="movie__time">@item.ThoiLuong min</p>
+
+            <p class="movie__option"><strong>Thể Loại: </strong><a href="#">@item.LoaiPhim.TenLoai</a></p>
+            <p class="movie__option"><strong>Dạng Phim: </strong><a href="#">@item.DangPhim.TenDang</a></p>
+
+            <div class="movie__btns">
+                <a href="@Url.Action("ChiTiet", "Phim", new { Id=item.PhimId})" class="btn btn-md btn--warning">Chi Tiết <span class="hidden-sm">Phim</span></a>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        
+
+    </div>
+    <!-- end movie preview item -->   
+    }
+    @section Scripts{
+      <script type="text/javascript">
+          $(document).ready(function () {
+              init_Home();
+          });
+		    </script>    
+    }
+}
+else
+{
+    <div class="movie">
+        <h2 class="page-heading">Tìm Kiếm</h2>
+
+        <div class="movie__info">
+            <div class="new_step">
+                <div class="sess_num">
+                    <img id="step_num_3" src="images/bluenew_sess_1.png" alt="">
+                </div>
+                <div class="purple_title">
+                    <div class="purple_loop">
+                        <span id="ContentPlaceHolder1_lblStep3">Chọn Rạp</span>
+                    </div>
+                </div>
+
+                <div class="new_step_content">
+                    <div class="jScrollPaneContainer" style="height: 250px; width: 280px;">
+                        <div class="scroll-pane" id="step_1" style="position: relative; overflow: hidden; height: 250px; width: 280px; padding: 0px; top: 0px;">
+                            <ul class="list_1">
+                                @foreach (var e in ViewBag.Rap)
+                                {
+                                    <li>
+                                        <input type="radio" name="rdoRap" class="checkRap rad" data-value="@e.RapId">
+                                        <label class="tenRap">@e.TenRap</label>
+                                    </li>
+                                }
+                            </ul>
+
+                            <!--Loading box 3-->
+                            <div id="step_3_shadow" style="height: 250px; width: 280px; display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="step2" class="new_step">
+                <div class="sess_num">
+                    <img id="step_num_3" src="images/bluenew_sess_2.png" alt="">
+                </div>
+                <div class="purple_title">
+                    <div class="purple_loop">
+                        <span id="ContentPlaceHolder1_lblStep3">Chọn Phim</span>
+                    </div>
+                </div>
+
+                <div class="new_step_content">
+                    <div class="jScrollPaneContainer" style="height: 250px; width: 280px;">
+                        <div class="scroll-pane" id="step_2">
+                            <ul class="list_1" id="movies_list_box">
+                                <li class="infoPhim">
+                                    <input type="radio" class="rad" name="rdoPhim" data-value="1" class="checkPhim">
+                                    <label for="movie_1" class="tenPhim">phim</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="step3" class="new_step last" style="margin-right: 0;">
+                <div class="sess_num">
+                    <img id="step_num_3" src="images/bluenew_sess_3.png" alt="">
+                </div>
+                <div class="purple_title">
+                    <div class="purple_loop">
+                        <span id="ContentPlaceHolder1_lblStep3">Chọn thời gian</span>
+                    </div>
+                </div>
+
+                <div class="new_step_content">
+                    <div class="jScrollPaneContainer" style="height: 250px; width: 280px;">
+                        <div class="scroll-pane" id="step_3" style="position: relative; overflow: hidden; height: 250px; width: 280px; padding: 0px; top: 0px;">
+                            <ul class="list_1">
+                                <li>
+                                    <input type="radio" name="rdoNgay" class="checkDate rad" value="1">
+                                    Hôm Nay</li>
+                                <li>
+                                    <input type="radio" name="rdoNgay" class="checkDate rad" value="7">
+                                    7 Ngày Tiếp Theo</li>
+                                <li>
+                                    <input type="radio" name="rdoNgay" class="checkDate rad" value="30">
+                                    Tất Cả</li>
+                            </ul>
+
+                            <!--Loading box 3-->
+                            <div id="step_3_shadow" style="height: 250px; width: 280px; display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+    <div id="ketQua">
+        <h2 id="kQcheck" class="page-heading" style="text-align: right;">Phim Được Tìm Thấy</h2>
+        <div class="choose-container">
+            <div id="showXuatChieu" class="time-select">
+            </div>
+        </div>
+    </div>
+@section scripts{
+    <script>
+
+        function getlichchieu(idPhim, ngay) {
+            $['getJSON']("/TimKiem/GetLichChieu", {
+                "maphim": idPhim,
+                "songay": ngay
+            }, function (data) {
+                var text = "";
+                if (data.length > 0) {
+                    var check = false;
+                    for (var i = 0; i < data.length; i++) {
+                        var textli = "";
+                        if (data[i].xuatchieu.length > 0) {
+                            check = true;
+                            for (var j = 0; j < data[i].xuatchieu.length; j++) {
+                                textli += '<a href="./datve/?Id=' + data[i].xuatchieu[j].xuatChieuId + '&LichChieuId=' + data[i].lichchieu + '"><li class="time-select__item" class="rad" data-time="' + data[i].xuatchieu[j].giochieu + '">' + data[i].xuatchieu[j].giochieu + '</li></a> ';
+                            }
+                            text += '<div class="time-select__group group--first"><div class="col-sm-4"><p class="time-select__place">' + data[i].ngay + '</p></div><ul class="col-sm-8 items-wrap">';
+                            text += textli + '</ul></div>';
+                        }
+                    }
+                    if (check == false) {
+                        $("#kQcheck").html("Phim Không Có Lịch Chiếu");
+                    } else {
+                        $("#kQcheck").html("Phim Có Lịch Chiếu");
+                        $("#showXuatChieu").html(text);
+                        $("#showXuatChieu").show("fast");
+                    }
+                } else {
+                    $("#kQcheck").html("Phim Không Có Lịch Chiếu");
+                    $("#showXuatChieu").html("");
+                    $("#showXuatChieu").hide();
+                }
+            });
+        }
+        $(document).ready(function () {
+
+            init_Home();
+
+            $("#step2").hide();
+            $("#step3").hide();
+            $("#ketQua").hide();
+            $(".checkRap").click(function () {
+                var idRap = $(this).attr("data-value");
+                $['getJSON']("/TimKiem/GetAllFilmInRap", {
+                    "marap": idRap
+                }, function (data) {
+                    var text = "";
+                    for (var i = 0; i < data.length; i++) {
+                        text += "<li class='infoPhim'><input type='radio' class='checkPhim rad' name='rdoPhim' data-value=" + data[i].id + " class='checkPhim'>"
+                        text += "<label for='movie_1' class='tenPhim'>" + data[i].tenphim + " " + data[i].dangphim + "</label></li>"
+                    }
+                    $("#movies_list_box").html(text);
+                    $(".checkPhim").click(function () {
+                        var idPhim = $(this).attr("data-value");
+                        $("#step3").show("fast");
+                        $(".checkDate").click(function () {
+                            var ngay = $(this).attr("value");
+                            getlichchieu(idPhim, ngay);
+                            $("#ketQua").show("fast");
+                        });
+                    });
+                });
+                $("#step2").show("fast");
+            });
+
+        })
+    </script>
+}
+}
+
+
+
+

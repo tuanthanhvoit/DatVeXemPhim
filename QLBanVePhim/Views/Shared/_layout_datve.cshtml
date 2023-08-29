@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html>
+<head>
+	<!-- Basic Page Needs -->
+        <meta charset="utf-8">
+        <title>AMovie</title>
+        <meta name="description" content="A Template by Gozha.net">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="">
+    
+    <!-- Mobile Specific Metas-->
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="telephone=no" name="format-detection">
+
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <!-- Roboto -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
+        <!-- Open Sans -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
+    
+    @Styles.Render("~/Content/csssite")
+    <!-- Modernizr --> 
+        <script src="~/Scripts/external/modernizr.custom.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --> 
+    <!--[if lt IE 9]> 
+    	@Styles.Render("~/bundles/jqhtml5")
+    <![endif]-->
+
+</head>
+
+<body>
+    <div class="wrapper mag">
+
+        @Html.Action("Menu", "Design")
+        <!-- Main content -->
+        <div class="place-form-area">
+            <section class="container">
+            
+                @RenderBody()              
+                
+            </section>
+        </div>
+        <div class="clearfix"></div>
+
+        <footer class="footer-wrapper">
+            @Html.Action("Footer","Design")
+        </footer>
+    </div>
+
+    <!-- open/close -->
+        <div class="overlay overlay-hugeinc">
+            
+            <section class="container">
+
+                @Html.Action("Login","Design")
+
+            </section>
+        </div>
+
+	<!-- JavaScript-->
+        <!-- jQuery 1.9.1--> 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="Scripts/external/jquery-1.10.1.min.js"><\/script>')</script>
+        @Scripts.Render("~/bundles/jquerysite")
+		
+	    
+
+        @RenderSection("Scripts", required: false)
+</body>
+</html>

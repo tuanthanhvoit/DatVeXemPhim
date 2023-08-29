@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("ThanhToan","ThanhToan"))
+{
+    <input type="submit" value="Xác Nhận Thanh Toán" />
+}
+
+@section scripts{
+    $(document).ready(function () {
+	              init_Home();
+	          });    
+}

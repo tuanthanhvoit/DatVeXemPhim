@@ -1,0 +1,64 @@
+﻿@model QLBanVePhim.Models.Phim
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Phim</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LoaiPhim.TenLoai)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LoaiPhim.TenLoai)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DangPhim.TenDang)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DangPhim.TenDang)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TenPhim)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenPhim)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AnhDaiDien)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AnhDaiDien)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MoTaPhim)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MoTaPhim)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ThoiLuong)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ThoiLuong)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LinkTrailer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LinkTrailer)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PhimId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

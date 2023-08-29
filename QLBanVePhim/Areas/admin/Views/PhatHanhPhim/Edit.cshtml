@@ -1,0 +1,62 @@
+﻿@model QLBanVePhim.Models.PhatHanhPhim
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PhatHanhPhim</legend>
+
+        @Html.HiddenFor(model => model.PhatHanhPhimId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PhimId, "Phim")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PhimId", String.Empty)
+            @Html.ValidationMessageFor(model => model.PhimId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RapId, "Rap")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("RapId", String.Empty)
+            @Html.ValidationMessageFor(model => model.RapId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NgayBatDau)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgayBatDau)
+            @Html.ValidationMessageFor(model => model.NgayBatDau)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NgayKetThuc)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgayKetThuc)
+            @Html.ValidationMessageFor(model => model.NgayKetThuc)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

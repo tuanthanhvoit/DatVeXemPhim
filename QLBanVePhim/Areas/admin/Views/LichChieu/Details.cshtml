@@ -1,0 +1,29 @@
+﻿@model QLBanVePhim.Models.LichChieu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>LichChieu</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhatHanhPhim.PhatHanhPhimId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhatHanhPhim.PhatHanhPhimId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NgayChieu)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgayChieu)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.LichChieuId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

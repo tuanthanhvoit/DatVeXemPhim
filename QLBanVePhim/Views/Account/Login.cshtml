@@ -1,0 +1,29 @@
+﻿@model QLBanVePhim.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_layout_datve.cshtml";
+}
+
+                    <p class="login__title">Đăng Nhập <br><span class="login-edition">----------------------</span></p>
+                    @using (Html.BeginForm("Login","Account",new { ReturnUrl = ViewBag.ReturnUrl },FormMethod.Post,new{ @class = "login2"})) {
+                        <div class="field-wrap">
+                        @Html.TextBoxFor(m => m.UserName, new {  type="textbox",placeholder="Email",@class="login__input"})
+                        @Html.TextBoxFor(m => m.Password, new {  type="password",placeholder="Password",@class="login__input"})
+                        @Html.CheckBoxFor(m => m.RememberMe, new { type="checkbox", id="#informed", @class="login__check styled"})
+                        <label for='#informed' class='login__check-info'>remember me</label>
+                         </div>
+                    
+                        <div class="login__control">
+                            <input type="submit" class="btn btn-md btn--warning btn--wider" value="đăng nhập">
+                            <a href="#" class="login__tracker form__tracker">Forgot password?</a>
+                        </div>
+                        
+                    }
+
+
+@section scripts{
+    $(document).ready(function () {
+	              init_Home();
+	          });    
+}

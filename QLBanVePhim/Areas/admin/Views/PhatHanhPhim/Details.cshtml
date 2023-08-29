@@ -1,0 +1,43 @@
+﻿@model QLBanVePhim.Models.PhatHanhPhim
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PhatHanhPhim</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Phim.TenPhim)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phim.TenPhim)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Rap.TenRap)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rap.TenRap)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NgayBatDau)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgayBatDau)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NgayKetThuc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgayKetThuc)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PhatHanhPhimId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

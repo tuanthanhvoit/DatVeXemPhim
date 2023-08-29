@@ -1,0 +1,105 @@
+﻿@model QLBanVePhim.Models.Phim
+
+@{
+    ViewBag.Title = "ChiTiet";
+}
+
+
+<div class="movie">
+    <h2 class="page-heading">@Model.TenPhim</h2>
+    <div class="movie__info">
+        <div class="col-sm-6 col-md-4 movie-mobile">
+            <div class="movie__images">
+                <img alt='' src="~/images/@Model.AnhDaiDien">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-8">
+        <p class="movie__time">@Model.ThoiLuong min</p>
+        <p class="movie__option"><strong>Loại Phim: </strong><a href="#">@Model.LoaiPhim.TenLoai</a></p>
+        <p class="movie__option"><strong>Dạng Phim: </strong>@Model.DangPhim.TenDang</p>
+
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<h2 class="page-heading">Tóm Tắt</h2>
+
+<p class="movie__describe">@Model.MoTaPhim</p>
+
+<h2 class="page-heading">photos &amp; videos</h2>
+
+<div class="movie__media">
+    <div class="movie__media-switch">
+        <a href="#" class="watchlist list--video" data-filter='media-video'>1 videos</a>
+    </div>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--First Slide-->
+            <div class="swiper-slide media-video">
+                <a href='@Model.LinkTrailer' class="movie__media-item ">
+                    <img alt='' src="~/images/@Model.AnhDaiDien">
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<h2 class="page-heading">showtime &amp; tickets</h2>
+<div class="choose-container">
+
+    <div class="datepicker">
+        <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
+        <input type="text" id="datepicker" value='@DateTime.Now.ToString("dd/MM/yyyy")' class="datepicker__input">
+    </div>
+
+    <a href="#" id="map-switch" class="watchlist watchlist--map"><span class="show-map">Show cinemas on map</span><span class="show-time">Show cinema time table</span></a>
+
+    <div class="clearfix"></div>
+
+    <div class="time-select">
+        @{
+            int i = 0;
+            foreach (var item in ViewBag.Rap)
+	        {
+		        <div class="time-select__group @if (i == 0){ @:group--first
+                } @if (i == ViewBag.Rap.Count -1){ @:group--last
+		        }">
+                    <div class="col-sm-4">
+                        <p class="time-select__place">@item.TenRap</p>
+                    </div>
+                    <ul class="col-sm-8 items-wrap">
+                        @foreach (var item2 in ViewBag.XuatChieu)
+                        {
+                            if (item2.LichChieu.PhatHanhPhim.RapId == item.RapId)
+                            {
+                                <a href="@Url.Action("Index", "DatVe", new { Id=item2.XuatChieuId, LichChieuId=item2.LichChieuId})"><li class="time-select__item" data-time='@item2.XuatChieu.GioBatDau.ToString(@"hh\:mm")'>@item2.XuatChieu.GioBatDau.ToString(@"hh\:mm")</li></a>
+                            }
+                        }
+                    </ul>
+                </div>
+                i++;
+	        }
+        }
+        
+        
+    </div>
+
+</div>
+
+@section Scripts{
+      <!-- Swiper slider -->
+      <script src="~/Scripts/external/idangerous.swiper.min.js"></script>
+      <!-- Magnific-popup -->
+      <script src="~/Scripts/external/jquery.magnific-popup.min.js"></script>  
+      <script type="text/javascript">
+          $(document).ready(function () {
+              init_MoviePage();
+          });
+		</script>    
+}

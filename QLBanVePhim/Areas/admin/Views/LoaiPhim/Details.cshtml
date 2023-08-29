@@ -1,0 +1,22 @@
+﻿@model QLBanVePhim.Models.LoaiPhim
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>LoaiPhim</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TenLoai)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenLoai)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.LoaiPhimId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

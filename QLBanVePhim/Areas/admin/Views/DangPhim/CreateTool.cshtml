@@ -1,0 +1,8 @@
+﻿@model QLBanVePhim.Models.DangPhim
+
+@using (Html.BeginForm("Create", "DangPhim", FormMethod.Post))
+{ 
+    <div class="table-toolbar">
+         <div><span style="float:left">Tên Dạng Phim:</span> @Html.TextBoxFor(model => model.TenDang, new { @class = "form-control", @style = "width:200px; float:left" }) <button type="submit" id="sample_editable_1_new" class="btn green">Thêm Mới <i class="fa fa-plus"></i></button></div>
+    </div>
+}

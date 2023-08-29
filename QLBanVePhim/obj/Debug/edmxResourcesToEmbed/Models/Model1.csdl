@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLPhimModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QLPhimEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiTietDichVus" EntityType="QLPhimModel.ChiTietDichVu" />
+    <EntitySet Name="ChiTietLichChieux" EntityType="QLPhimModel.ChiTietLichChieu" />
+    <EntitySet Name="ChiTietVes" EntityType="QLPhimModel.ChiTietVe" />
+    <EntitySet Name="DangPhims" EntityType="QLPhimModel.DangPhim" />
+    <EntitySet Name="DatVes" EntityType="QLPhimModel.DatVe" />
+    <EntitySet Name="DichVus" EntityType="QLPhimModel.DichVu" />
+    <EntitySet Name="Ghes" EntityType="QLPhimModel.Ghe" />
+    <EntitySet Name="Khach_Hangs" EntityType="QLPhimModel.Khach_Hang" />
+    <EntitySet Name="LichChieux" EntityType="QLPhimModel.LichChieu" />
+    <EntitySet Name="LoaiPhims" EntityType="QLPhimModel.LoaiPhim" />
+    <EntitySet Name="PhatHanhPhims" EntityType="QLPhimModel.PhatHanhPhim" />
+    <EntitySet Name="Phims" EntityType="QLPhimModel.Phim" />
+    <EntitySet Name="Phongs" EntityType="QLPhimModel.Phong" />
+    <EntitySet Name="Raps" EntityType="QLPhimModel.Rap" />
+    <EntitySet Name="Users" EntityType="QLPhimModel.User" />
+    <EntitySet Name="Ves" EntityType="QLPhimModel.Ve" />
+    <EntitySet Name="XuatChieux" EntityType="QLPhimModel.XuatChieu" />
+    <AssociationSet Name="FK_Chi_Tiet_Dich_Vu_Dat_Ve" Association="QLPhimModel.FK_Chi_Tiet_Dich_Vu_Dat_Ve">
+      <End Role="DatVe" EntitySet="DatVes" />
+      <End Role="ChiTietDichVu" EntitySet="ChiTietDichVus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chi_Tiet_Dich_Vu_DichVu" Association="QLPhimModel.FK_Chi_Tiet_Dich_Vu_DichVu">
+      <End Role="DichVu" EntitySet="DichVus" />
+      <End Role="ChiTietDichVu" EntitySet="ChiTietDichVus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chi_Tiet_Lich_Chieu_LichChieu" Association="QLPhimModel.FK_Chi_Tiet_Lich_Chieu_LichChieu">
+      <End Role="LichChieu" EntitySet="LichChieux" />
+      <End Role="ChiTietLichChieu" EntitySet="ChiTietLichChieux" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chi_Tiet_Lich_Chieu_Phong" Association="QLPhimModel.FK_Chi_Tiet_Lich_Chieu_Phong">
+      <End Role="Phong" EntitySet="Phongs" />
+      <End Role="ChiTietLichChieu" EntitySet="ChiTietLichChieux" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chi_Tiet_Lich_Chieu_Xuat_Chieu" Association="QLPhimModel.FK_Chi_Tiet_Lich_Chieu_Xuat_Chieu">
+      <End Role="XuatChieu" EntitySet="XuatChieux" />
+      <End Role="ChiTietLichChieu" EntitySet="ChiTietLichChieux" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ve_Chi_Tiet_Lich_Chieu" Association="QLPhimModel.FK_Ve_Chi_Tiet_Lich_Chieu">
+      <End Role="ChiTietLichChieu" EntitySet="ChiTietLichChieux" />
+      <End Role="Ve" EntitySet="Ves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chi_Tiet_Ve_Dat_Ve" Association="QLPhimModel.FK_Chi_Tiet_Ve_Dat_Ve">
+      <End Role="DatVe" EntitySet="DatVes" />
+      <End Role="ChiTietVe" EntitySet="ChiTietVes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chi_Tiet_Ve_Ve" Association="QLPhimModel.FK_Chi_Tiet_Ve_Ve">
+      <End Role="Ve" EntitySet="Ves" />
+      <End Role="ChiTietVe" EntitySet="ChiTietVes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phim_Dang_Phim" Association="QLPhimModel.FK_Phim_Dang_Phim">
+      <End Role="DangPhim" EntitySet="DangPhims" />
+      <End Role="Phim" EntitySet="Phims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dat_Ve_Khach_Hang" Association="QLPhimModel.FK_Dat_Ve_Khach_Hang">
+      <End Role="Khach_Hang" EntitySet="Khach_Hangs" />
+      <End Role="DatVe" EntitySet="DatVes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ve_Ghe" Association="QLPhimModel.FK_Ve_Ghe">
+      <End Role="Ghe" EntitySet="Ghes" />
+      <End Role="Ve" EntitySet="Ves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LichChieu_PhatHanhPhim" Association="QLPhimModel.FK_LichChieu_PhatHanhPhim">
+      <End Role="PhatHanhPhim" EntitySet="PhatHanhPhims" />
+      <End Role="LichChieu" EntitySet="LichChieux" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phim_LoaiPhim" Association="QLPhimModel.FK_Phim_LoaiPhim">
+      <End Role="LoaiPhim" EntitySet="LoaiPhims" />
+      <End Role="Phim" EntitySet="Phims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhatHanhPhim_Phim" Association="QLPhimModel.FK_PhatHanhPhim_Phim">
+      <End Role="Phim" EntitySet="Phims" />
+      <End Role="PhatHanhPhim" EntitySet="PhatHanhPhims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhatHanhPhim_Rap" Association="QLPhimModel.FK_PhatHanhPhim_Rap">
+      <End Role="Rap" EntitySet="Raps" />
+      <End Role="PhatHanhPhim" EntitySet="PhatHanhPhims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phong_Rap" Association="QLPhimModel.FK_Phong_Rap">
+      <End Role="Rap" EntitySet="Raps" />
+      <End Role="Phong" EntitySet="Phongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rap_User" Association="QLPhimModel.FK_Rap_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Rap" EntitySet="Raps" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ChiTietDichVu">
+    <Key>
+      <PropertyRef Name="IdCTDichVu" />
+    </Key>
+    <Property Name="IdCTDichVu" Type="Int32" Nullable="false" />
+    <Property Name="IdDichVu" Type="Int32" />
+    <Property Name="IdDatVe" Type="Int32" />
+    <NavigationProperty Name="DatVe" Relationship="QLPhimModel.FK_Chi_Tiet_Dich_Vu_Dat_Ve" FromRole="ChiTietDichVu" ToRole="DatVe" />
+    <NavigationProperty Name="DichVu" Relationship="QLPhimModel.FK_Chi_Tiet_Dich_Vu_DichVu" FromRole="ChiTietDichVu" ToRole="DichVu" />
+  </EntityType>
+  <EntityType Name="ChiTietLichChieu">
+    <Key>
+      <PropertyRef Name="IdCTLichChieu" />
+    </Key>
+    <Property Name="IdCTLichChieu" Type="Int32" Nullable="false" />
+    <Property Name="IdLichChieu" Type="Int32" />
+    <Property Name="IdPhong" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="IdXuatChieu" Type="Int32" />
+    <NavigationProperty Name="LichChieu" Relationship="QLPhimModel.FK_Chi_Tiet_Lich_Chieu_LichChieu" FromRole="ChiTietLichChieu" ToRole="LichChieu" />
+    <NavigationProperty Name="Phong" Relationship="QLPhimModel.FK_Chi_Tiet_Lich_Chieu_Phong" FromRole="ChiTietLichChieu" ToRole="Phong" />
+    <NavigationProperty Name="XuatChieu" Relationship="QLPhimModel.FK_Chi_Tiet_Lich_Chieu_Xuat_Chieu" FromRole="ChiTietLichChieu" ToRole="XuatChieu" />
+    <NavigationProperty Name="Ves" Relationship="QLPhimModel.FK_Ve_Chi_Tiet_Lich_Chieu" FromRole="ChiTietLichChieu" ToRole="Ve" />
+  </EntityType>
+  <EntityType Name="ChiTietVe">
+    <Key>
+      <PropertyRef Name="IdCTVe" />
+    </Key>
+    <Property Name="IdCTVe" Type="Int32" Nullable="false" />
+    <Property Name="IdVe" Type="Int32" />
+    <Property Name="IdDatVe" Type="Int32" />
+    <NavigationProperty Name="DatVe" Relationship="QLPhimModel.FK_Chi_Tiet_Ve_Dat_Ve" FromRole="ChiTietVe" ToRole="DatVe" />
+    <NavigationProperty Name="Ve" Relationship="QLPhimModel.FK_Chi_Tiet_Ve_Ve" FromRole="ChiTietVe" ToRole="Ve" />
+  </EntityType>
+  <EntityType Name="DangPhim">
+    <Key>
+      <PropertyRef Name="IdDang" />
+    </Key>
+    <Property Name="IdDang" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="TenDang" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Phims" Relationship="QLPhimModel.FK_Phim_Dang_Phim" FromRole="DangPhim" ToRole="Phim" />
+  </EntityType>
+  <EntityType Name="DatVe">
+    <Key>
+      <PropertyRef Name="IdDatVe" />
+    </Key>
+    <Property Name="IdDatVe" Type="Int32" Nullable="false" />
+    <Property Name="IdKhachHang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="NgayDat" Type="DateTime" Precision="0" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="ThanhTien" Type="Int32" />
+    <NavigationProperty Name="ChiTietDichVus" Relationship="QLPhimModel.FK_Chi_Tiet_Dich_Vu_Dat_Ve" FromRole="DatVe" ToRole="ChiTietDichVu" />
+    <NavigationProperty Name="ChiTietVes" Relationship="QLPhimModel.FK_Chi_Tiet_Ve_Dat_Ve" FromRole="DatVe" ToRole="ChiTietVe" />
+    <NavigationProperty Name="Khach_Hang" Relationship="QLPhimModel.FK_Dat_Ve_Khach_Hang" FromRole="DatVe" ToRole="Khach_Hang" />
+  </EntityType>
+  <EntityType Name="DichVu">
+    <Key>
+      <PropertyRef Name="IdDichVu" />
+    </Key>
+    <Property Name="IdDichVu" Type="Int32" Nullable="false" />
+    <Property Name="TenDichVu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Gia" Type="Int32" />
+    <NavigationProperty Name="ChiTietDichVus" Relationship="QLPhimModel.FK_Chi_Tiet_Dich_Vu_DichVu" FromRole="DichVu" ToRole="ChiTietDichVu" />
+  </EntityType>
+  <EntityType Name="Ghe">
+    <Key>
+      <PropertyRef Name="IdGhe" />
+    </Key>
+    <Property Name="IdGhe" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="LoaiGhe" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="DayGhe" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="SoGhe" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="GiaTien" Type="Int32" />
+    <NavigationProperty Name="Ves" Relationship="QLPhimModel.FK_Ve_Ghe" FromRole="Ghe" ToRole="Ve" />
+  </EntityType>
+  <EntityType Name="Khach_Hang">
+    <Key>
+      <PropertyRef Name="IdKhachHang" />
+    </Key>
+    <Property Name="IdKhachHang" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="TenKH" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="DienThoai" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="GioiTinh" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="DatVes" Relationship="QLPhimModel.FK_Dat_Ve_Khach_Hang" FromRole="Khach_Hang" ToRole="DatVe" />
+  </EntityType>
+  <EntityType Name="LichChieu">
+    <Key>
+      <PropertyRef Name="IdLichChieu" />
+    </Key>
+    <Property Name="IdLichChieu" Type="Int32" Nullable="false" />
+    <Property Name="IdCTPhatHanh" Type="Int32" />
+    <Property Name="NgayChieu" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ChiTietLichChieux" Relationship="QLPhimModel.FK_Chi_Tiet_Lich_Chieu_LichChieu" FromRole="LichChieu" ToRole="ChiTietLichChieu" />
+    <NavigationProperty Name="PhatHanhPhim" Relationship="QLPhimModel.FK_LichChieu_PhatHanhPhim" FromRole="LichChieu" ToRole="PhatHanhPhim" />
+  </EntityType>
+  <EntityType Name="LoaiPhim">
+    <Key>
+      <PropertyRef Name="IdLoai" />
+    </Key>
+    <Property Name="IdLoai" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="TenLoai" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Phims" Relationship="QLPhimModel.FK_Phim_LoaiPhim" FromRole="LoaiPhim" ToRole="Phim" />
+  </EntityType>
+  <EntityType Name="PhatHanhPhim">
+    <Key>
+      <PropertyRef Name="IdCTPhatHanh" />
+    </Key>
+    <Property Name="IdCTPhatHanh" Type="Int32" Nullable="false" />
+    <Property Name="IdPhim" Type="Int32" />
+    <Property Name="IdRap" Type="Int32" />
+    <Property Name="NgayBatDau" Type="DateTime" Precision="0" />
+    <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="LichChieux" Relationship="QLPhimModel.FK_LichChieu_PhatHanhPhim" FromRole="PhatHanhPhim" ToRole="LichChieu" />
+    <NavigationProperty Name="Phim" Relationship="QLPhimModel.FK_PhatHanhPhim_Phim" FromRole="PhatHanhPhim" ToRole="Phim" />
+    <NavigationProperty Name="Rap" Relationship="QLPhimModel.FK_PhatHanhPhim_Rap" FromRole="PhatHanhPhim" ToRole="Rap" />
+  </EntityType>
+  <EntityType Name="Phim">
+    <Key>
+      <PropertyRef Name="IdPhim" />
+    </Key>
+    <Property Name="IdPhim" Type="Int32" Nullable="false" />
+    <Property Name="IdLoai" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="IdDang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="TenPhim" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="AnhDaiDien" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="MoTaPhim" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ThoiLuong" Type="Int32" />
+    <Property Name="LinkTrailer" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="DangPhim" Relationship="QLPhimModel.FK_Phim_Dang_Phim" FromRole="Phim" ToRole="DangPhim" />
+    <NavigationProperty Name="LoaiPhim" Relationship="QLPhimModel.FK_Phim_LoaiPhim" FromRole="Phim" ToRole="LoaiPhim" />
+    <NavigationProperty Name="PhatHanhPhims" Relationship="QLPhimModel.FK_PhatHanhPhim_Phim" FromRole="Phim" ToRole="PhatHanhPhim" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="IdPhong" />
+    </Key>
+    <Property Name="IdPhong" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="IdRap" Type="Int32" />
+    <Property Name="TenPhong" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ChiTietLichChieux" Relationship="QLPhimModel.FK_Chi_Tiet_Lich_Chieu_Phong" FromRole="Phong" ToRole="ChiTietLichChieu" />
+    <NavigationProperty Name="Rap" Relationship="QLPhimModel.FK_Phong_Rap" FromRole="Phong" ToRole="Rap" />
+  </EntityType>
+  <EntityType Name="Rap">
+    <Key>
+      <PropertyRef Name="IdRap" />
+    </Key>
+    <Property Name="IdRap" Type="Int32" Nullable="false" />
+    <Property Name="TenRap" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="IdUser" Type="Int32" />
+    <NavigationProperty Name="PhatHanhPhims" Relationship="QLPhimModel.FK_PhatHanhPhim_Rap" FromRole="Rap" ToRole="PhatHanhPhim" />
+    <NavigationProperty Name="Phongs" Relationship="QLPhimModel.FK_Phong_Rap" FromRole="Rap" ToRole="Phong" />
+    <NavigationProperty Name="User" Relationship="QLPhimModel.FK_Rap_User" FromRole="Rap" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="Int32" Nullable="false" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Raps" Relationship="QLPhimModel.FK_Rap_User" FromRole="User" ToRole="Rap" />
+  </EntityType>
+  <EntityType Name="Ve">
+    <Key>
+      <PropertyRef Name="IdVe" />
+    </Key>
+    <Property Name="IdVe" Type="Int32" Nullable="false" />
+    <Property Name="IdGhe" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+    <Property Name="IdCTLichChieu" Type="Int32" />
+    <Property Name="TinhTrangGhe" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ChiTietLichChieu" Relationship="QLPhimModel.FK_Ve_Chi_Tiet_Lich_Chieu" FromRole="Ve" ToRole="ChiTietLichChieu" />
+    <NavigationProperty Name="ChiTietVes" Relationship="QLPhimModel.FK_Chi_Tiet_Ve_Ve" FromRole="Ve" ToRole="ChiTietVe" />
+    <NavigationProperty Name="Ghe" Relationship="QLPhimModel.FK_Ve_Ghe" FromRole="Ve" ToRole="Ghe" />
+  </EntityType>
+  <EntityType Name="XuatChieu">
+    <Key>
+      <PropertyRef Name="IdXuatChieu" />
+    </Key>
+    <Property Name="IdXuatChieu" Type="Int32" Nullable="false" />
+    <Property Name="GioBatDau" Type="DateTime" Precision="0" />
+    <Property Name="ThoiGianChieu" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ChiTietLichChieux" Relationship="QLPhimModel.FK_Chi_Tiet_Lich_Chieu_Xuat_Chieu" FromRole="XuatChieu" ToRole="ChiTietLichChieu" />
+  </EntityType>
+  <Association Name="FK_Chi_Tiet_Dich_Vu_Dat_Ve">
+    <End Role="DatVe" Type="QLPhimModel.DatVe" Multiplicity="0..1" />
+    <End Role="ChiTietDichVu" Type="QLPhimModel.ChiTietDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatVe">
+        <PropertyRef Name="IdDatVe" />
+      </Principal>
+      <Dependent Role="ChiTietDichVu">
+        <PropertyRef Name="IdDatVe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chi_Tiet_Dich_Vu_DichVu">
+    <End Role="DichVu" Type="QLPhimModel.DichVu" Multiplicity="0..1" />
+    <End Role="ChiTietDichVu" Type="QLPhimModel.ChiTietDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DichVu">
+        <PropertyRef Name="IdDichVu" />
+      </Principal>
+      <Dependent Role="ChiTietDichVu">
+        <PropertyRef Name="IdDichVu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chi_Tiet_Lich_Chieu_LichChieu">
+    <End Role="LichChieu" Type="QLPhimModel.LichChieu" Multiplicity="0..1" />
+    <End Role="ChiTietLichChieu" Type="QLPhimModel.ChiTietLichChieu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichChieu">
+        <PropertyRef Name="IdLichChieu" />
+      </Principal>
+      <Dependent Role="ChiTietLichChieu">
+        <PropertyRef Name="IdLichChieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chi_Tiet_Lich_Chieu_Phong">
+    <End Role="Phong" Type="QLPhimModel.Phong" Multiplicity="0..1" />
+    <End Role="ChiTietLichChieu" Type="QLPhimModel.ChiTietLichChieu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="IdPhong" />
+      </Principal>
+      <Dependent Role="ChiTietLichChieu">
+        <PropertyRef Name="IdPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chi_Tiet_Lich_Chieu_Xuat_Chieu">
+    <End Role="XuatChieu" Type="QLPhimModel.XuatChieu" Multiplicity="0..1" />
+    <End Role="ChiTietLichChieu" Type="QLPhimModel.ChiTietLichChieu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="XuatChieu">
+        <PropertyRef Name="IdXuatChieu" />
+      </Principal>
+      <Dependent Role="ChiTietLichChieu">
+        <PropertyRef Name="IdXuatChieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ve_Chi_Tiet_Lich_Chieu">
+    <End Role="ChiTietLichChieu" Type="QLPhimModel.ChiTietLichChieu" Multiplicity="0..1" />
+    <End Role="Ve" Type="QLPhimModel.Ve" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChiTietLichChieu">
+        <PropertyRef Name="IdCTLichChieu" />
+      </Principal>
+      <Dependent Role="Ve">
+        <PropertyRef Name="IdCTLichChieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chi_Tiet_Ve_Dat_Ve">
+    <End Role="DatVe" Type="QLPhimModel.DatVe" Multiplicity="0..1" />
+    <End Role="ChiTietVe" Type="QLPhimModel.ChiTietVe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatVe">
+        <PropertyRef Name="IdDatVe" />
+      </Principal>
+      <Dependent Role="ChiTietVe">
+        <PropertyRef Name="IdDatVe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chi_Tiet_Ve_Ve">
+    <End Role="Ve" Type="QLPhimModel.Ve" Multiplicity="0..1" />
+    <End Role="ChiTietVe" Type="QLPhimModel.ChiTietVe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ve">
+        <PropertyRef Name="IdVe" />
+      </Principal>
+      <Dependent Role="ChiTietVe">
+        <PropertyRef Name="IdVe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phim_Dang_Phim">
+    <End Role="DangPhim" Type="QLPhimModel.DangPhim" Multiplicity="0..1" />
+    <End Role="Phim" Type="QLPhimModel.Phim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DangPhim">
+        <PropertyRef Name="IdDang" />
+      </Principal>
+      <Dependent Role="Phim">
+        <PropertyRef Name="IdDang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dat_Ve_Khach_Hang">
+    <End Role="Khach_Hang" Type="QLPhimModel.Khach_Hang" Multiplicity="0..1" />
+    <End Role="DatVe" Type="QLPhimModel.DatVe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Khach_Hang">
+        <PropertyRef Name="IdKhachHang" />
+      </Principal>
+      <Dependent Role="DatVe">
+        <PropertyRef Name="IdKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ve_Ghe">
+    <End Role="Ghe" Type="QLPhimModel.Ghe" Multiplicity="0..1" />
+    <End Role="Ve" Type="QLPhimModel.Ve" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ghe">
+        <PropertyRef Name="IdGhe" />
+      </Principal>
+      <Dependent Role="Ve">
+        <PropertyRef Name="IdGhe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LichChieu_PhatHanhPhim">
+    <End Role="PhatHanhPhim" Type="QLPhimModel.PhatHanhPhim" Multiplicity="0..1" />
+    <End Role="LichChieu" Type="QLPhimModel.LichChieu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhatHanhPhim">
+        <PropertyRef Name="IdCTPhatHanh" />
+      </Principal>
+      <Dependent Role="LichChieu">
+        <PropertyRef Name="IdCTPhatHanh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phim_LoaiPhim">
+    <End Role="LoaiPhim" Type="QLPhimModel.LoaiPhim" Multiplicity="0..1" />
+    <End Role="Phim" Type="QLPhimModel.Phim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiPhim">
+        <PropertyRef Name="IdLoai" />
+      </Principal>
+      <Dependent Role="Phim">
+        <PropertyRef Name="IdLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhatHanhPhim_Phim">
+    <End Role="Phim" Type="QLPhimModel.Phim" Multiplicity="0..1" />
+    <End Role="PhatHanhPhim" Type="QLPhimModel.PhatHanhPhim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phim">
+        <PropertyRef Name="IdPhim" />
+      </Principal>
+      <Dependent Role="PhatHanhPhim">
+        <PropertyRef Name="IdPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhatHanhPhim_Rap">
+    <End Role="Rap" Type="QLPhimModel.Rap" Multiplicity="0..1" />
+    <End Role="PhatHanhPhim" Type="QLPhimModel.PhatHanhPhim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rap">
+        <PropertyRef Name="IdRap" />
+      </Principal>
+      <Dependent Role="PhatHanhPhim">
+        <PropertyRef Name="IdRap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phong_Rap">
+    <End Role="Rap" Type="QLPhimModel.Rap" Multiplicity="0..1" />
+    <End Role="Phong" Type="QLPhimModel.Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rap">
+        <PropertyRef Name="IdRap" />
+      </Principal>
+      <Dependent Role="Phong">
+        <PropertyRef Name="IdRap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rap_User">
+    <End Role="User" Type="QLPhimModel.User" Multiplicity="0..1" />
+    <End Role="Rap" Type="QLPhimModel.Rap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Rap">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

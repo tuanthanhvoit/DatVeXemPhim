@@ -1,0 +1,55 @@
+﻿<div class="col-sm-12">
+    <div class="mega-select-present mega-select-top mega-select--full">
+        <div class="mega-select-marker">
+            <div class="marker-indecator location">
+                <p class="select-marker"><span>phim đang được </span>
+                    <br>
+                    chiếu</p>
+            </div>
+
+            <div class="marker-indecator cinema">
+                <p class="select-marker"><span>tìm trong </span>
+                    <br>
+                    rạp</p>
+            </div>
+
+            <div class="marker-indecator film-category">
+                <p class="select-marker"><span>Phim</span>
+                    <br>
+                    yêu thích</p>
+            </div>
+
+        </div>
+
+        @using (Html.BeginForm("Index","TimKiem",FormMethod.Post))
+        {
+        <div class="mega-select pull-right">
+            <span class="mega-select__point">Tìm kiếm theo:</span>
+            <ul class="mega-select__sort">
+                <li class="filter-wrap"><a href="#" class="mega-select__filter filter--active" data-filter='location'>Phim</a></li>
+                <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='film-category'>thể loại</a></li>
+                <li class="filter-wrap">@Html.ActionLink("Đặt Vé","Index","TimKiem")</li>
+            </ul>
+
+            <input name="inputSearch" type='text' class="select__field">
+
+            <div class="select__btn">
+                <a class="btn btn-md btn--danger location"><input type="submit" style="border: none; background: none;" name="theophim" value="theo phim" /></a>
+                <a class="btn btn-md btn--danger film-category"><input type="submit" style="border: none; background: none;" name="theophim" value="theo thể loại" /></a>
+            </div>
+
+            <div class="select__dropdowns">
+
+                <ul class="select__group film-category">
+                    <li class="select__variant" data-value="Children's">Trẻ Nhỏ</li>
+                    <li class="select__variant" data-value='Comedy'>Hài Hước</li>
+                    <li class="select__variant" data-value='Drama'>Tiểu Thuyết</li>
+                    <li class="select__variant" data-value='Fantasy'>Giả Tưởng</li>
+                    <li class="select__variant" data-value='Horror'>Kinh Dị</li>
+                </ul>
+
+            </div>
+        </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿<header class="header-wrapper header-wrapper--home2">
+    <div class="container">
+        <!-- Logo link-->
+        <a href='@Url.Action("Index","Home")' class="logo">
+            <img alt='logo' src="~/images/logo.png">
+        </a>
+
+        <!-- Main website navigation-->
+        <nav id="navigation-box">
+            <!-- Toggle for mobile menu mode -->
+            <a href="#" id="navigation-toggle">
+                <span class="menu-icon">
+                    <span class="icon-toggle" role="button" aria-label="Toggle Navigation">
+                        <span class="lines"></span>
+                    </span>
+                </span>
+            </a>
+
+            <!-- Link navigation -->
+            <ul id="navigation">
+                <li>
+                    <a href="@Url.Action("Index","Home")">Trang Chủ</a>
+                </li>
+                <li>
+                    <span class="sub-nav-toggle plus"></span>
+                    <a href="page-elements.html">Lịch Chiếu</a>
+                    <ul>
+                        <li class="menu__nav-item"><a href="./index.html">Theo Phim</a></li>
+                        <li class="menu__nav-item"><a href="./index.html">Theo Rạp</a></li>
+                        <li class="menu__nav-item"><a href="./index.html">Theo Ngày</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="gallery-four.html">Dịch Vụ</a>
+                </li>
+                <li>
+                    <a href="news-left.html">Liên Hệ</a>
+                </li>
+                <li>
+                    <a href="news-left.html">Hỗ Trợ</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Additional header buttons / Auth and direct link to booking-->
+        <div class="control-panel">
+            <div class="auth auth--home">
+                <div class="auth__show">
+                    <span class="auth__image">
+                        <img alt="" src="~/images/client-photo/auth.png">
+                    </span>
+                </div>
+                <a href="#" class="btn btn--sign btn--singin">Hồng Hạnh
+                </a>
+                <ul class="auth__function">
+                    <li><a href="#" class="auth__function-item">Xem vé đã đặt</a></li>
+                    <li><a href="#" class="auth__function-item">Điều Chỉnh</a></li>
+                </ul>
+
+            </div>
+            <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Đặt Vé</a>
+        </div>
+
+    </div>
+</header>

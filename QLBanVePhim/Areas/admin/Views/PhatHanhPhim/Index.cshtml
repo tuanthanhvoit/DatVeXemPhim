@@ -1,0 +1,98 @@
+﻿@model IEnumerable<QLBanVePhim.Models.PhatHanhPhim>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box light-grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-globe"></i>Danh Sách Phát Hành Phim: @TempData["Error"]</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                    <a href="javascript:;" class="reload"></a>
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @using (Html.BeginForm("Index","PhatHanhPhim",FormMethod.Post)) { 
+                <div class="table-toolbar">
+                    <div class="btn-group">
+                        <a href="@Url.Action("Create","PhatHanhPhim")" id="sample_editable_1_new" class="btn green">Thêm Mới <i class="fa fa-plus"></i></a>
+                        <button type="submit" class="btn red">Xóa Tất Cả <i class="fa fa-times-circle"></i></button>
+                    </div>
+                    <div class="btn-group pull-right">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i></button>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="#">Print
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">Save as PDF
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">Export to Excel
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered table-hover" id="sample_1">
+                    <thead>
+                        <tr>
+                            <th class="table-checkbox">
+                                <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" />
+                            </th>
+                            <th>Mã</th>
+                            <th>Tên Phim</th>
+                            <th>Rạp Phát Hành</th>
+                            <th>Ngày Bắt Đầu Chiếu</th>
+                            <th>Ngày Kết Thúc</th>
+                            <th>Tool</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr class="odd gradeX">
+                            <td><input type="checkbox" class="checkboxes" value="@item.PhatHanhPhimId" /></td>
+                            <td>@Html.DisplayFor(modelItem=>item.PhatHanhPhimId)</td>
+                            <td>@item.Phim.TenPhim</td>
+                            <td>@item.Rap.TenRap</td>
+                            <td>@item.NgayBatDau.ToString("dd/MM/yyyy")</td>
+                            <td>@item.NgayKetThuc.ToString("dd/MM/yyyy")</td>
+                            <td>
+                                <a href="@Url.Action("Create", "LichChieu", new { Id = item.PhatHanhPhimId})" data-trigger="hover" data-placement="top" data-content="Lên Lịch Chiếu Cho Phim" data-original-title="Chức Năng" class="fa fa-list-ol popovers"> </a>
+                                <a href="@Url.Action("Create", "XuatChieu", new { Id = item.PhatHanhPhimId})" data-trigger="hover" data-placement="top" data-content="Thêm 1 Xuất Chiếu Cho Phim" data-original-title="Chức Năng" class="fa fa-ticket popovers"> </a>
+                                <a href="@Url.Action("Details", new { Id = item.PhatHanhPhimId})" data-trigger="hover" data-placement="top" data-content="Chi Tiết Phát Hành Phim" data-original-title="Chức Năng" class="fa fa-info-circle popovers"> </a>
+                                <a href="@Url.Action("Edit", new { Id = item.PhatHanhPhimId})" data-trigger="hover" data-placement="top" data-content="Sửa Phát Hành Phim" data-original-title="Chức Năng" class="fa fa-edit popovers"> </a>
+                                <a href="@Url.Action("Delete", new { Id = item.PhatHanhPhimId})" data-trigger="hover" data-placement="top" data-content="Xóa Phát Hành Phim" data-original-title="Chức Năng" class="fa fa-times-circle popovers"> </a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                }
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/assets/scripts/custom/table-managed.js"></script>    
+    <script src="~/assets/scripts/custom/ui-general.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            App.init(); // initlayout and core plugins
+            TableManaged.init();
+            UIGeneral.init();
+        });
+    </script>
+}

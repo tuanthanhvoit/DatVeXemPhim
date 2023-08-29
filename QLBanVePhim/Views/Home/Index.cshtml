@@ -1,0 +1,78 @@
+﻿
+@model IEnumerable<QLBanVePhim.Models.Phim>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@helper Truncate(string input, int maxLeng){
+    if (input.Length < maxLeng)
+    {
+        @input
+    }else{
+        @input.Substring(0,maxLeng)<text>.....</text>
+    }
+}
+
+@{
+    int count = 1;
+    bool check = true;
+    foreach (var item in Model)
+    {
+        
+        <!-- Movie variant with time -->
+        <div class="@if(check==true){
+            @:movie movie--test movie--test--dark movie--test--left
+        }else{
+            @:movie movie--test movie--test--light movie--test--right            
+        }">
+            <div class="movie__images">
+                <a href="@Url.Action("ChiTiet", "Phim", new { Id = @item.PhimId})" class="movie-beta__link">
+                    <img alt='' height="350px" src="~/images/@item.AnhDaiDien">
+                </a>
+            </div>
+
+            <div class="movie__info">
+                <a href='@Url.Action("ChiTiet", "Phim", new { Id = @item.PhimId})' class="movie__title">@item.TenPhim - @item.DangPhim.TenDang</a>
+
+                <p class="movie__time">@item.ThoiLuong min</p>
+
+                <p class="movie__option">
+                    <a href="#"> @item.LoaiPhim.TenLoai </a>
+                    <div>
+                        <div style="font-weight: bold; text-transform: uppercase">Tóm Tắt</div>
+                        @Truncate(item.MoTaPhim,70)
+                    </div>
+                </p>
+
+                <div class="movie__rate">
+                    <div class="score"></div>
+                    <span class="movie__rating">4.1</span>
+                </div>
+            </div>
+        </div>
+        <!-- Movie variant with time -->
+        if (count % 2 == 0)
+        {
+            if (check == true)
+            {
+                check = false;
+            }
+            else
+            {
+                check = true;
+            }
+        }
+        count++;
+    }
+}
+
+
+
+
+@section Scripts{
+      <script type="text/javascript">
+	          $(document).ready(function () {
+	              init_Home();
+	          });
+		    </script>    
+}

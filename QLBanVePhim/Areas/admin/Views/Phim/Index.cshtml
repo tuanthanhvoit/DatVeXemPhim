@@ -1,0 +1,103 @@
+﻿@model IEnumerable<QLBanVePhim.Models.Phim>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@helper Truncate(string input, int maxLeng){
+    if (input.Length < maxLeng)
+    {
+        @input
+    }else{
+        @input.Substring(0,maxLeng)<text>.....</text>
+    }
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box light-grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-globe"></i>Danh Sách Phim:</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                    <a href="javascript:;" class="reload"></a>
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                
+                <div class="table-toolbar">
+                    <div class="btn-group">
+                        <a href="@Url.Action("Create","Phim")" id="sample_editable_1_new" class="btn green">Thêm Mới <i class="fa fa-plus"></i></a>
+                    </div>
+                    <div class="btn-group pull-right">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i></button>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="#">Print
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">Save as PDF
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">Export to Excel
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered table-hover" id="sample_2">
+                    <thead>
+                        <tr>
+                            <th>Mã</th>
+                            <th>Dạng Phim</th>
+                            <th>Loại Phim </th>
+                            <th>Tên Phim</th>
+                            <th>Ảnh Đại Diện</th>
+                            <th>Mô Tả</th>
+                            <th>Trailer</th>
+                            <th>Tool</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr class="odd gradeX">
+                            <td>@item.PhimId</td>
+                            <td>@item.DangPhim.TenDang</td>
+                            <td>@item.LoaiPhim.TenLoai</td>
+                            <td>@item.TenPhim</td>
+                            <td><img width="50px" height="80px" src="~/images/@item.AnhDaiDien"</td>
+                            <td>@Truncate(item.MoTaPhim,60)</td>
+                            <td>@item.LinkTrailer</td>
+                            <td>
+                                <a href="@Url.Action("Details", new { Id = item.PhimId})" data-trigger="hover" data-placement="top" data-content="Chi Tiết Phim" data-original-title="Chức Năng" class="fa fa-info-circle popovers"> </a>
+                                <a href="@Url.Action("Edit", new { Id = item.PhimId})" data-trigger="hover" data-placement="top" data-content="Sửa Phim" data-original-title="Chức Năng" class="fa fa-edit popovers"> </a>
+                                <a href="@Url.Action("Delete", new { Id = item.PhimId})" data-trigger="hover" data-placement="top" data-content="Xóa Phim" data-original-title="Chức Năng" class="fa fa-times-circle popovers"> </a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/assets/scripts/custom/table-managed.js"></script>    
+    <script src="~/assets/scripts/custom/ui-general.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            App.init(); // initlayout and core plugins
+            TableManaged.init();
+            UIGeneral.init();
+        });
+    </script>
+}
